@@ -1,17 +1,16 @@
 /* Yoke Luong — personal site
-   Palette: paper grey, ink, audit green. Fonts: Bricolage Grotesque (headings), Public Sans (body). */
+   Look: warm off-white paper, near-black ink, heavy tight headlines, hairline dividers.
+   Font: Inter Tight (one family, weights 400 to 800). */
 
 :root {
-  --paper: #f1f4f7;
-  --paper-deep: #e4e9ee;
-  --ink: #17202b;
-  --muted: #526070;
-  --line: #c6cfd9;
-  --accent: #0e6a5a;
-  --accent-soft: #d6ebe5;
-  --focus: #b45309;
-  --measure: 68ch;
-  --gutter: clamp(1.25rem, 5vw, 3rem);
+  --paper: #faf9f6;
+  --bar: #efeeea;
+  --ink: #0d0d0d;
+  --muted: #4d4c48;
+  --line: #e0ded8;
+  --focus: #1a4fd6;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --measure: 38rem;
 }
 
 *,
@@ -28,28 +27,28 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: "Inter Tight", "Helvetica Neue", Arial, sans-serif;
   font-size: 1.0625rem;
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 h1,
 h2,
 h3 {
-  font-family: "Bricolage Grotesque", "Public Sans", system-ui, sans-serif;
-  line-height: 1.1;
   margin: 0;
-  letter-spacing: -0.01em;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
 }
 
 p {
-  margin: 0 0 1rem;
+  margin: 0 0 1.1rem;
   max-width: var(--measure);
 }
 
 a {
-  color: var(--accent);
-  text-underline-offset: 0.2em;
+  color: var(--ink);
+  text-underline-offset: 0.18em;
   text-decoration-thickness: 1px;
 }
 
@@ -57,11 +56,9 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
-a:focus-visible,
-button:focus-visible {
+a:focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 3px;
-  border-radius: 2px;
 }
 
 .skip {
@@ -69,7 +66,7 @@ button:focus-visible {
   left: -999px;
   top: 0;
   background: var(--ink);
-  color: #fff;
+  color: var(--paper);
   padding: 0.6rem 1rem;
   z-index: 10;
 }
@@ -78,252 +75,313 @@ button:focus-visible {
   left: 0;
 }
 
-/* Header and navigation */
+/* Header */
 
 .site-header {
   display: flex;
   flex-wrap: wrap;
-  align-items: baseline;
+  align-items: center;
   justify-content: space-between;
-  gap: 0.75rem 2rem;
-  padding: 1.25rem var(--gutter);
-  border-bottom: 1px solid var(--line);
+  gap: 0.5rem 2rem;
+  padding: 1.15rem var(--gutter);
+  background: var(--bar);
 }
 
-.brand {
-  font-family: "Bricolage Grotesque", sans-serif;
+.brand,
+.site-nav a {
+  font-size: 0.8rem;
   font-weight: 700;
-  font-size: 1.25rem;
-  color: var(--ink);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   text-decoration: none;
 }
 
 .site-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.25rem 1.5rem;
+  gap: 0.25rem 1.6rem;
 }
 
 .site-nav a {
-  color: var(--muted);
-  text-decoration: none;
-  padding: 0.25rem 0;
+  padding: 0.2rem 0;
   border-bottom: 2px solid transparent;
 }
 
 .site-nav a:hover {
-  color: var(--ink);
+  border-bottom-color: var(--line);
 }
 
 .site-nav a[aria-current="page"] {
-  color: var(--ink);
-  font-weight: 600;
-  border-bottom-color: var(--accent);
+  border-bottom-color: var(--ink);
 }
 
-/* Layout */
+/* Page frame */
 
 main {
-  padding: clamp(2rem, 6vw, 4.5rem) var(--gutter) 4rem;
-  max-width: 62rem;
+  padding: clamp(2.5rem, 7vw, 5rem) var(--gutter) 5rem;
+  max-width: 82rem;
   margin: 0 auto;
 }
 
-.page-title {
-  font-size: clamp(2.2rem, 6vw, 3.6rem);
-  margin-bottom: 0.75rem;
-}
-
-.page-intro {
+.label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--muted);
-  font-size: 1.15rem;
-  margin-bottom: 3rem;
+  margin: 0 0 1.25rem;
 }
 
-section + section {
-  margin-top: 3.5rem;
+.intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem 4rem;
+  padding-bottom: clamp(2.5rem, 7vw, 5rem);
 }
 
-h2 {
-  font-size: 1.6rem;
-  margin-bottom: 1.25rem;
+@media (min-width: 52rem) {
+  .intro {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  .intro .side {
+    padding-top: 0.6rem;
+  }
 }
 
-/* Home hero */
-
-.hero h1 {
-  font-size: clamp(2.6rem, 8vw, 5.2rem);
-  font-weight: 800;
-  margin-bottom: 1.25rem;
+.headline {
+  font-size: clamp(2.6rem, 6.4vw, 5rem);
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
 }
 
-.hero .lead {
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-size: clamp(1.4rem, 3.4vw, 2rem);
-  line-height: 1.25;
-  max-width: 28ch;
-  margin-bottom: 1.5rem;
+.side p {
+  font-size: 1.1rem;
+  line-height: 1.5;
 }
 
-.hero .sub {
-  color: var(--muted);
-  margin-bottom: 2rem;
+.side p:last-child {
+  margin-bottom: 0;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
+  margin-top: 1.75rem;
 }
 
 .button {
   display: inline-block;
-  padding: 0.7rem 1.25rem;
-  border: 2px solid var(--accent);
-  background: var(--accent);
-  color: #fff;
-  font-weight: 600;
+  padding: 0.75rem 1.3rem;
+  background: var(--ink);
+  color: var(--paper);
+  border: 2px solid var(--ink);
+  font-weight: 700;
+  font-size: 0.95rem;
   text-decoration: none;
-  border-radius: 3px;
 }
 
 .button:hover {
-  background: #0a5648;
-  border-color: #0a5648;
+  background: #2b2b29;
+  border-color: #2b2b29;
 }
 
 .button.quiet {
   background: transparent;
-  color: var(--accent);
+  color: var(--ink);
 }
 
 .button.quiet:hover {
-  background: var(--accent-soft);
+  background: var(--bar);
 }
 
-/* Results ledger */
+/* Sections separated by hairlines */
+
+.block {
+  border-top: 1px solid var(--line);
+  padding: clamp(2rem, 5vw, 3.25rem) 0;
+}
+
+.block > h2 {
+  font-size: clamp(1.7rem, 3.4vw, 2.4rem);
+  margin-bottom: 1.5rem;
+}
+
+.block > .label {
+  margin-bottom: 1.5rem;
+}
+
+/* Three takeaways */
+
+.points {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 52rem) {
+  .points {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+  }
+}
+
+.points h3 {
+  font-size: 1.5rem;
+  line-height: 1.05;
+  margin-bottom: 0.75rem;
+}
+
+.points p {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Results table */
 
 .ledger {
   width: 100%;
   border-collapse: collapse;
-  font-size: 1rem;
-}
-
-.ledger caption {
-  text-align: left;
-  font-family: "Bricolage Grotesque", sans-serif;
-  font-weight: 700;
-  font-size: 1.6rem;
-  padding-bottom: 1rem;
 }
 
 .ledger th,
 .ledger td {
   text-align: left;
   vertical-align: top;
-  padding: 0.85rem 1rem 0.85rem 0;
+  padding: 1rem 1.5rem 1rem 0;
   border-bottom: 1px solid var(--line);
 }
 
 .ledger thead th {
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--muted);
-  font-weight: 600;
-  font-size: 0.9rem;
-  border-bottom: 2px solid var(--ink);
+  font-weight: 700;
+  border-bottom: 1px solid var(--ink);
+}
+
+.ledger tbody th {
+  font-weight: 700;
+  width: 22%;
 }
 
 .ledger td:last-child {
-  font-weight: 700;
-  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.2rem;
+  letter-spacing: -0.02em;
   padding-right: 0;
 }
 
-/* Two column text blocks */
+@media (max-width: 40rem) {
+  .ledger thead {
+    position: absolute;
+    left: -999px;
+  }
+
+  .ledger tr {
+    display: block;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .ledger th,
+  .ledger td {
+    display: block;
+    width: auto !important;
+    padding: 0.1rem 0;
+    border: 0;
+  }
+
+  .ledger td:last-child {
+    margin-top: 0.3rem;
+  }
+}
+
+/* Two column text */
 
 .split {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem;
+  gap: 2rem 4rem;
 }
 
 @media (min-width: 52rem) {
   .split {
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
   }
 }
 
-/* Entries (experience, projects, involvement) */
+.split h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+/* Entries: dates on the left, story on the right */
 
 .entry {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.5rem 2.5rem;
-  padding: 2rem 0;
+  gap: 0.75rem 4rem;
   border-top: 1px solid var(--line);
-}
-
-.entry:last-child {
-  border-bottom: 1px solid var(--line);
+  padding: clamp(2rem, 5vw, 3.25rem) 0;
 }
 
 @media (min-width: 52rem) {
   .entry {
-    grid-template-columns: 14rem 1fr;
+    grid-template-columns: 1fr 1.4fr;
   }
 }
 
-.entry-meta {
-  color: var(--muted);
-  font-size: 0.95rem;
-}
-
-.entry-meta strong {
-  display: block;
-  color: var(--ink);
-  font-weight: 600;
-}
-
 .entry h2,
-.entry h3 {
-  font-size: 1.45rem;
-  margin-bottom: 0.25rem;
+.entry h3.title {
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  line-height: 0.98;
+  margin-bottom: 0.6rem;
 }
 
 .entry .role {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0 0 0.35rem;
+}
+
+.entry .when {
   color: var(--muted);
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
 .entry ul {
   margin: 0;
-  padding-left: 1.2rem;
+  padding-left: 1.15rem;
   max-width: var(--measure);
 }
 
 .entry li {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.65rem;
 }
 
-.entry li::marker {
-  color: var(--accent);
+.entry h3.step {
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  margin: 1.6rem 0 0.4rem;
 }
 
-/* Definition lists (about page facts) */
-
-.facts {
-  margin: 0;
+.entry h3.step:first-child {
+  margin-top: 0;
 }
 
-.facts dt {
-  font-weight: 600;
-  margin-top: 1rem;
+.entry .story p {
+  margin-bottom: 0.4rem;
 }
 
-.facts dd {
-  margin: 0.15rem 0 0;
-  color: var(--muted);
-}
+/* Skill tags */
 
 .tags {
   list-style: none;
@@ -335,9 +393,9 @@ h2 {
 }
 
 .tags li {
-  background: var(--paper-deep);
-  padding: 0.3rem 0.75rem;
-  border-radius: 3px;
+  border: 1px solid var(--ink);
+  padding: 0.25rem 0.8rem;
+  font-weight: 600;
   font-size: 0.95rem;
 }
 
@@ -356,32 +414,16 @@ h2 {
 
 .site-footer p {
   margin: 0;
+  max-width: none;
 }
 
-/* Mobile: turn the ledger into stacked rows */
+.site-footer a {
+  color: var(--ink);
+  margin-left: 1rem;
+}
 
-@media (max-width: 40rem) {
-  .ledger thead {
-    position: absolute;
-    left: -999px;
-  }
-
-  .ledger tr {
-    display: block;
-    padding: 0.85rem 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .ledger th,
-  .ledger td {
-    display: block;
-    padding: 0.1rem 0;
-    border: 0;
-  }
-
-  .ledger td:last-child {
-    margin-top: 0.25rem;
-  }
+.site-footer a:first-child {
+  margin-left: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -396,9 +438,5 @@ h2 {
   .actions,
   .skip {
     display: none;
-  }
-
-  body {
-    background: #fff;
   }
 }
