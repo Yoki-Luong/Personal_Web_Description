@@ -30,23 +30,33 @@
         <h1 class="headline">Systems built with clear rules.</h1>
       </div>
       <div class="side">
-        <p>My main project right now is a team capstone, and it's still in progress. I'm focused on the requirements and data rules that keep a system accurate.</p>
+        <p>My main project right now is a team capstone, and it's still in progress. As QA and Testing Lead, I focus on making sure the system works the way its rules say it should.</p>
       </div>
     </section>
 
     <article class="entry" aria-labelledby="tps">
       <div>
-        <h2 id="tps">Transaction Processing System</h2>
+        <h2 id="tps">Patient Referral Management System</h2>
         <p class="role">MIS 3371 capstone, University of Houston</p>
-        <p class="when">August 2026 to present<br>Team project, in progress</p>
+        <p class="when">August 2026 to present<br>Team of 5, in progress</p>
       </div>
       <div class="story">
-        <p>A web-based site with structured data entry, designed to streamline a workflow. My team builds it in HTML and CSS and manages the code on GitHub.</p>
+        <h3 class="step">The problem</h3>
+        <p>Clinics send referrals by phone, fax, paper, and email. Coordinators re-type the details, chase missing information, and route referrals by hand, so referrals get lost, duplicates happen, and providers can't see the status.</p>
+
+        <h3 class="step">The system</h3>
+        <p>Our team built a transaction processing system for one transaction: a provider submits a patient referral for a service. The system checks the required fields, blocks duplicate active referrals, assigns a referral ID, and routes the referral to the right department. That department accepts it, rejects it with a reason, or asks for more information, and every status change is recorded with a timestamp.</p>
+
+        <h3 class="step">What I do</h3>
         <ul>
-          <li>Defined the system requirements and documented a 15-field data dictionary covering data types, validation rules, business rules, and system-generated fields, so the data stays accurate.</li>
-          <li>Use GitHub for version control: reviewing code changes and coordinating with my team throughout development.</li>
+          <li>I serve as the team's QA and Testing Lead.</li>
+          <li>Our documentation includes a 15-field data dictionary covering data types, validation rules, business rules, and system-generated fields.</li>
+          <li>I use GitHub for version control, reviewing code changes and coordinating with my team throughout development.</li>
         </ul>
-        <p style="margin-top:1rem">Tools: HTML, CSS, GitHub, VS Code.</p>
+
+        <h3 class="step">Where it stands</h3>
+        <p>The front end (HTML, CSS, and JavaScript) is complete, with validation and business rules such as duplicate blocking and a review window that depends on urgency. A local Node.js backend passes 21 tests. All demo data is fictional.</p>
+        <p style="margin-top:1rem">Tools: HTML, CSS, JavaScript, Node.js, GitHub, VS Code.</p>
       </div>
     </article>
 
